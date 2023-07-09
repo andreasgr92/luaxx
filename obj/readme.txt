@@ -1,0 +1,1 @@
+for temporary obj file
