@@ -1,7 +1,5 @@
-# CC = gcc
 CC = aarch64-linux-gnu-gcc
 CFLAGS = -O2 -Wall -Isrc -D_FILE_OFFSET_BITS=64 -DLUA_USE_LINUX -DCURL_STATICLIB -Iexternal/curl/include
-# CFLAGS = -O2 -Wall -Isrc -D_FILE_OFFSET_BITS=64 -DCURL_STATICLIB -Iexternal/curl/include
 SRC_DIR = src
 OBJ_DIR = obj
 
@@ -17,7 +15,6 @@ TARGET = luaxx
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-#	$(CC) $(CFLAGS) $^ -o $@ -s external/curl/lib/.libs/libcurl.a external/zlib/libzlibstatic.a -lWS2_32 -lcrypt32 -lbcrypt
 	$(CC) $(CFLAGS) $^ -o $@ -s external/curl/lib/.libs/libcurl.a external/zlib/libz.a -lssl -lcrypto -lpthread -ldl -lm
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
