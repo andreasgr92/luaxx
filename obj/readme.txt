@@ -1,1 +1,0 @@
-Temporary generated obj files
